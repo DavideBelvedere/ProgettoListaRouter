@@ -11,6 +11,7 @@ import { ListComponent } from './components/list/list.component';
 import { GamesRouterModule } from './routers/router.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ListVideogame } from './services/list-videogame.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ListVideogame } from './services/list-videogame.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     GamesRouterModule
 
   ],

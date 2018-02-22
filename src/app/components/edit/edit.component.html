@@ -1,3 +1,13 @@
-<p style="margin-top: 70px">
-    edit works!
-</p>
+<div style="margin-top: 70px">
+    <input type="text" [(ngModel)]="searchBar"><button (click)="search()">Cerca</button>
+
+</div>
+<div *ngIf="trovato" style="margin-top: 70px">
+    {{currentGame.id}}<br> titolo: <input type="text" [(ngModel)]="currentGame.title" /><br> prezzo: <input type="text" [(ngModel)]="currentGame.price" /><br> genere: <input type="text" [(ngModel)]="currentGame.genere" /><br> rating: <input type="text"
+        [(ngModel)]="currentGame.rating" /><br> anno: <input type="text" [(ngModel)]="currentGame.anno" />
+
+    <button (click)="edit()">Applica Modifiche</button>
+</div>
+<div *ngIf="errore">
+    hai sbagliato a cercare
+</div>
