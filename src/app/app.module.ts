@@ -9,6 +9,8 @@ import { EditComponent } from './components/edit/edit.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListComponent } from './components/list/list.component';
 import { GamesRouterModule } from './routers/router.module';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ListVideogame } from './services/list-videogame.service';
 
 
 @NgModule({
@@ -18,14 +20,15 @@ import { GamesRouterModule } from './routers/router.module';
     DetailComponent,
     EditComponent,
     HomeComponent,
-    ListComponent
+    ListComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     GamesRouterModule
 
   ],
-  providers: [],
+  providers: [ListVideogame],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,6 +6,7 @@ import { EditComponent } from '../components/edit/edit.component';
 import { DetailComponent } from '../components/detail/detail.component';
 import { PageNotFoundComponent } from '../components/page-not-found/page-not-found.component';
 
+
 const routes: Routes = [
     {path:"home", component: HomeComponent},//dichiaro il path del componente home
     {path:"list", component: ListComponent},//dichiaro il path del componente list

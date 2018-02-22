@@ -1,0 +1,29 @@
+.navbar {
+    width: 100%;
+    height: 60px;
+    background: #378df8;
+    position: fixed;
+    z-index: 10;
+    display: block;
+    top: 0;
+    left: 0;
+}
+
+ul {
+    float: right;
+    margin-top: 14px;
+    margin-right: 15px;
+}
+
+nav>ul>li {
+    display: inline-block;
+    color: white;
+    font-size: 23px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.active {
+    font-size: 27px !important;
+    text-decoration: underline;
+}
