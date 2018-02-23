@@ -27,18 +27,21 @@ export class EditComponent implements OnInit {
       }
     });
 
-     this.utilityRouter.events.subscribe(event => {
-       if (event instanceof NavigationStart) {
-         if (this.currentGame) {
-           
-           if (listVideogames.isChanged(this.currentGame)) {
-             this.isChanged = true;
-           } else {
-             this.isChanged = false;
-           }
-         }
-       }
-     });
+    this.utilityRouter.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+
+        if (this.currentGame != undefined) {
+
+          if (listVideogames.isChanged(this.currentGame)) {
+            this.isChanged = true;
+          } else {
+            this.isChanged = false;
+          }
+        } else {
+          this.isChanged = false;
+        }
+      }
+    });
   }
 
   ngOnInit() {
@@ -51,24 +54,18 @@ export class EditComponent implements OnInit {
 
   search() {
     if (this.searchBar && this.searchBar != "") {
-      this.trovato = false;
-      for (let game of this.listVideogames.getVideogameList()) {
-        if (game.$title.toLowerCase() === this.searchBar.toLocaleLowerCase()) {
-          this.trovato = true;
-          this.currentGame = this.listVideogames.getGameById(game.$id);
-          this.errore = false;
-          break;
-        }
-      }
-
-      if (!this.trovato) {
+      this.currentGame = this.listVideogames.search(this.searchBar);
+      if (this.currentGame != null) {
+        this.trovato = true;
+        this.errore = false;
+      } else {
         this.errore = true;
-
+        this.trovato = false;
       }
 
     }
   }
-  
+
   goToDetail() {
     this.utilityRouter.navigate(['/detail/' + this.currentGame.$id]); //setta l'id quando si va nella pagina detail
   }

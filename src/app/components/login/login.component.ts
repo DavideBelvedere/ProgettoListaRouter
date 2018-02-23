@@ -12,34 +12,26 @@ export class LoginComponent implements OnInit {
   user: string;
   pass: string;
 
-  constructor(private loginService: LoginService, private router: Router) { 
- }
-
-  ngOnInit() {
-    
-    if(sessionStorage.getItem('user')===null){
-      this.loginService.reset();
-    }else{
-      this.router.navigate(['/home']);
-    }
-   
+  constructor(private loginService: LoginService, private router: Router) {
   }
 
-  ngOnDestroy(){
+  ngOnInit() {
+  }
+
+  ngOnDestroy() {
     this.loginService.otherPage();
   }
 
   login() {
     if (this.loginService.login(this.user, this.pass)) {
-      alert('login eseguito correttamente');
       this.router.navigate(["/home"]);
     } else {
       alert('login non eseguito controlla username e password');
     }
   }
 
-  
 
- 
+
+
 
 }

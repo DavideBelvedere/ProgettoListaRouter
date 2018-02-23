@@ -69,4 +69,19 @@ export class ListVideogame {
         return true;
     }
 
+    search(cercato: string): VideoGame {
+
+        for (let game of this.games) {
+            if (game.$title.toLowerCase() === cercato.toLocaleLowerCase()) {
+                let trovato = true;
+                let currentGame = this.getGameById(game.$id);
+
+                return currentGame;
+            }
+        }
+        return null;
+
+
+    }
+
 }
