@@ -7,6 +7,7 @@ import { DetailComponent } from '../components/detail/detail.component';
 import { PageNotFoundComponent } from '../components/page-not-found/page-not-found.component';
 import { LoginComponent } from '../components/login/login.component';
 import { AuthguardService } from '../services/authguard.service';
+import { CanDeactivateEditService } from '../services/can-deactivate-edit.service';
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
     {path:"login", component: LoginComponent},//dichiaro il path del componente home
     {path:"list", component: ListComponent, canActivate:[AuthguardService]},//dichiaro il path del componente list
     {path:"edit/:id", component: EditComponent, canActivate:[AuthguardService]},
-    {path:"edit", component: EditComponent, canActivate:[AuthguardService]},
+    {path:"edit", component: EditComponent, canActivate:[AuthguardService],canDeactivate:[CanDeactivateEditService]},
     {path:"detail/:id", component: DetailComponent, canActivate:[AuthguardService]},//dichiaro il path del componente detail a cui viene passato un id
     {path:"", redirectTo:"/login", pathMatch: "full"},//all'inizio accederà ad home
     {path:"**", component: PageNotFoundComponent}

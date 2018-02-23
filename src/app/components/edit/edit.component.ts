@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { VideoGame } from '../../class/Videogame';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { ListVideogame } from '../../services/list-videogame.service';
 
 @Component({
@@ -14,10 +14,11 @@ export class EditComponent implements OnInit {
   currentGame: VideoGame;
   searchBar: string = "";
   loadedFromDetail = false;
+  isChanged = true;
   trovato = false;
   errore = false;
   constructor(private router: ActivatedRoute, private listVideogames: ListVideogame, private utilityRouter: Router) {//ActivatedRoute rappresenta il route corrente
-    this.router.params.subscribe(params => {//
+    this.router.params.subscribe(params => {
       if (params['id'] != '' && params['id'] != null) {
         this.currentGame = this.listVideogames.getGameById(params['id']);
         this.loadedFromDetail = true;
@@ -25,6 +26,19 @@ export class EditComponent implements OnInit {
         this.loadedFromDetail = false;
       }
     });
+
+     this.utilityRouter.events.subscribe(event => {
+       if (event instanceof NavigationStart) {
+         if (this.currentGame) {
+           alert(listVideogames.isChanged(this.currentGame));
+           if (listVideogames.isChanged(this.currentGame)) {
+             this.isChanged = true;
+           } else {
+             this.isChanged = false;
+           }
+         }
+       }
+     });
   }
 
   ngOnInit() {
@@ -41,7 +55,7 @@ export class EditComponent implements OnInit {
       for (let game of this.listVideogames.getVideogameList()) {
         if (game.$title.toLowerCase() === this.searchBar.toLocaleLowerCase()) {
           this.trovato = true;
-          this.currentGame = game;
+          this.currentGame = this.listVideogames.getGameById(game.$id);
           this.errore = false;
           break;
         }
@@ -54,6 +68,7 @@ export class EditComponent implements OnInit {
 
     }
   }
+  
   goToDetail() {
     this.utilityRouter.navigate(['/detail/' + this.currentGame.$id]); //setta l'id quando si va nella pagina detail
   }
@@ -64,7 +79,9 @@ export class EditComponent implements OnInit {
     this.goToDetail();
 
   }
+  NavigationStart() {
 
+  }
   ngOnDestroy() {
 
   }

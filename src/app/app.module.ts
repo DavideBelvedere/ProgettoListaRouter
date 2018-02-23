@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { LoginService } from './services/login.service';
 import { AuthguardService } from './services/authguard.service';
+import { CanDeactivateEditService } from './services/can-deactivate-edit.service';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { AuthguardService } from './services/authguard.service';
     GamesRouterModule
 
   ],
-  providers: [ListVideogame, LoginService, AuthguardService],
+  providers: [ListVideogame, LoginService, AuthguardService,CanDeactivateEditService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
