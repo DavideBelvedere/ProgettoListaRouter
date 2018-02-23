@@ -1,3 +1,8 @@
-<div style="margin-top: 70px" *ngFor="let game of videoGames" (click)="goToEdit(game)">
-    {{game?.title}} - {{game?.price}}
+<div class="mainDiv">
+    <div class="gameDiv" *ngFor="let game of videoGames" (click)="goToEdit(game)">
+        <div>
+            <div><img class="img" src="{{game?.imgUrl}}"></div>
+            <div class="text">{{game?.title}} - {{game?.price}}</div>
+        </div>
+    </div>
 </div>

@@ -10,9 +10,15 @@
 }
 
 ul {
-    float: right;
+    float: left;
     margin-top: 14px;
     margin-right: 15px;
+}
+
+.button_div {
+    display: inline-block;
+    float: right;
+    margin: 20px 15px 0 0;
 }
 
 nav>ul>li {

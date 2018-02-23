@@ -12,6 +12,8 @@ import { GamesRouterModule } from './routers/router.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ListVideogame } from './services/list-videogame.service';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { LoginService } from './services/login.service';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     EditComponent,
     HomeComponent,
     ListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { FormsModule } from '@angular/forms';
     GamesRouterModule
 
   ],
-  providers: [ListVideogame],
+  providers: [ListVideogame, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

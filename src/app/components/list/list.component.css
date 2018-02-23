@@ -1,0 +1,31 @@
+.gameDiv {
+    box-sizing: border-box;
+    width: 70%;
+    margin-left: 14%;
+    margin-top: 8%;
+    height: auto;
+    -webkit-box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.75);
+    background-color: rgba(197, 232, 243, 0.6);
+}
+
+.gameDiv>div {
+    text-align: center;
+    width: 60%;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.img {
+    height: 30%;
+    width: 60%;
+}
+
+.text {
+    padding-top: 2%;
+}
