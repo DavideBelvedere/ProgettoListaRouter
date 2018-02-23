@@ -14,6 +14,7 @@ import { ListVideogame } from './services/list-videogame.service';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { LoginService } from './services/login.service';
+import { AuthguardService } from './services/authguard.service';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { LoginService } from './services/login.service';
     GamesRouterModule
 
   ],
-  providers: [ListVideogame, LoginService],
+  providers: [ListVideogame, LoginService, AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
