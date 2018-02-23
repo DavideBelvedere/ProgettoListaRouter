@@ -1,15 +1,15 @@
 export class VideoGame {
-    private imgUrl: string;
-    private title: string;
-    private price: number;
-    private id: string;
-    private genere: string;
-    private rating: number;
-    private anno: number;
+	private imgUrl: string;
+	private title: string;
+	private price: number;
+	private id: string;
+	private genere: string;
+	private rating: number;
+	private anno: number;
 
 
 
-	constructor($imgUrl: string="", $title: string="", $price: number=0, $id: string="", $genere: string="", $rating: number=0, $anno: number=0) {
+	constructor($imgUrl: string = "", $title: string = "", $price: number = 0, $id: string = "", $genere: string = "", $rating: number = 0, $anno: number = 0) {
 		this.imgUrl = $imgUrl;
 		this.title = $title;
 		this.price = $price;
@@ -18,8 +18,8 @@ export class VideoGame {
 		this.rating = $rating;
 		this.anno = $anno;
 	}
-	clone():VideoGame{
-		return new VideoGame(this.imgUrl,this.title,this.price,this.id,this.genere,this.rating,this.anno);
+	clone(): VideoGame {
+		return new VideoGame(this.imgUrl, this.title, this.price, this.id, this.genere, this.rating, this.anno);
 	}
 
 	public get $id(): string {
@@ -37,7 +37,7 @@ export class VideoGame {
 	public set $title(value: string) {
 		this.title = value;
 	}
-  
+
 
 	public get $price(): number {
 		return this.price;

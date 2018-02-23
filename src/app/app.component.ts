@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from './services/login.service';
 
 @Component({
@@ -7,13 +7,17 @@ import { LoginService } from './services/login.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
+  private login=false;
   constructor(private loginService: LoginService) {
     
     this.loginService.loginParam$.subscribe((login: boolean) => {
       this.login = login;
     });
   }
-  private login = false;
+  ngOnInit(){
+    this.login=this.loginService.isLogged();
+  }
+  
   title = 'app';
 }

@@ -11,7 +11,7 @@ export class CanDeactivateEditService implements CanDeactivate<EditComponent> {
   canDeactivate(component: EditComponent) {
 
     if (component.isChanged) {
-      return confirm('Are you sure?');
+      return confirm('Sei sicuro di voler uscire?');
     } else {
       return true;
     }

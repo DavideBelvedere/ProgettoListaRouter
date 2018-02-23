@@ -30,7 +30,7 @@ export class EditComponent implements OnInit {
      this.utilityRouter.events.subscribe(event => {
        if (event instanceof NavigationStart) {
          if (this.currentGame) {
-           alert(listVideogames.isChanged(this.currentGame));
+           
            if (listVideogames.isChanged(this.currentGame)) {
              this.isChanged = true;
            } else {
