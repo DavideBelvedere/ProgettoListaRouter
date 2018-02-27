@@ -18,7 +18,7 @@ ul {
 .button_div {
     display: inline-block;
     float: right;
-    margin: 20px 15px 0 0;
+    margin: 14px 30px 0 0;
 }
 
 nav>ul>li {
@@ -32,4 +32,14 @@ nav>ul>li {
 .active {
     font-size: 27px !important;
     text-decoration: underline;
+}
+
+#logoutBtn {
+    background-color: rgba(197, 232, 243, 0.6);
+    border-color: rgba(197, 232, 243, 0.6);
+    border-radius: 8px;
+    color: white;
+    padding: 10%;
+    font-size: 1rem;
+    cursor: pointer;
 }

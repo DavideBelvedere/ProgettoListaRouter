@@ -1,6 +1,8 @@
 <div class="gameDiv" *ngFor="let game of videoGames" (click)="goToEdit(game)">
-    <div>
-        <div><img class="img" src="{{game?.imgUrl}}"></div>
-        <div class="text">{{game?.title}} - {{game?.price}}</div>
+    <div class="spacingDiv"></div>
+    <div class="infoGame">
+        <div class="imgDiv"><img src="{{game?.imgUrl}}"></div>
+        <div class="text">{{game?.title}} - {{game?.price}}€</div>
     </div>
+    <div class="spacingDiv"></div>
 </div>
