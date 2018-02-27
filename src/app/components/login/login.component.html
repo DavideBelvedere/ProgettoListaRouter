@@ -1,7 +1,18 @@
-<div>
-    <span>User: </span>
-    <input [(ngModel)]="user" type="text" placeholder="user" />
-    <span>Password: </span>
-    <input type="text" [(ngModel)]="pass" placeholder="password" />
-    <button (click)="login()">Login</button>
+<div class="container-table">
+    <div id="titleDiv">
+        <h3>LOGIN</h3>
+    </div>
+    <div id="informationDiv">
+        <div>
+            <p>User: </p>
+            <input [(ngModel)]="user" type="text" placeholder="User" />
+        </div>
+        <div>
+            <p>Password: </p>
+            <input type="text" [(ngModel)]="pass" placeholder="Password" />
+        </div>
+        <div id="loginBtnDiv">
+            <button (click)="login()">Login</button>
+        </div>
+    </div>
 </div>
