@@ -47,3 +47,47 @@
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
+
+@media only screen and (max-width: 450px) {
+    .gameDiv {
+        box-sizing: border-box;
+        width: 95%;
+        margin-left: 2.5%;
+        margin-top: 8%;
+        margin-bottom: 8%;
+        -webkit-box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.75);
+        background-color: rgba(197, 232, 243, 0.6);
+    }
+    .infoGame {
+        margin: 5% 4.5% 5% 4.5%!important;
+        text-align: center;
+        width: 90%;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 1200px) {
+    .gameDiv {
+        box-sizing: border-box;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 8%;
+        margin-bottom: 8%;
+        -webkit-box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 55px 5px rgba(0, 0, 0, 0.75);
+        background-color: rgba(197, 232, 243, 0.6);
+    }
+    .infoGame {
+        margin: 5% 15% 5% 15%!important;
+        text-align: center;
+        width: 70%;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+    }
+}
