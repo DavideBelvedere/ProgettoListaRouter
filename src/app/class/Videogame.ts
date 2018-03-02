@@ -1,15 +1,17 @@
+import { Genere } from "./Genere";
+
 export class VideoGame {
 	private imgUrl: string;
 	private title: string;
 	private price: number;
 	private id: string;
-	private genere: string;
+	private genere: Genere;
 	private rating: number;
 	private anno: number;
 
 
 
-	constructor($imgUrl: string = "", $title: string = "", $price: number = 0, $id: string = "", $genere: string = "", $rating: number = 0, $anno: number = 0) {
+	constructor($imgUrl: string = "", $title: string = "", $price: number = 0, $id: string = "", $genere: Genere = null, $rating: number = 0, $anno: number = 0) {
 		this.imgUrl = $imgUrl;
 		this.title = $title;
 		this.price = $price;
@@ -63,11 +65,11 @@ export class VideoGame {
 		this.rating = value;
 	}
 
-	public get $genere(): string {
+	public get $genere(): Genere {
 		return this.genere;
 	}
 
-	public set $genere(value: string) {
+	public set $genere(value: Genere) {
 		this.genere = value;
 	}
 

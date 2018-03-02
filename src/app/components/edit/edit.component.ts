@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { VideoGame } from '../../class/Videogame';
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { ListVideogame } from '../../services/list-videogame.service';
+import { ListGeneresService } from '../../services/list-generes.service';
+import { Genere } from '../../class/Genere';
 
 @Component({
   selector: 'app-edit',
@@ -12,12 +14,13 @@ import { ListVideogame } from '../../services/list-videogame.service';
 export class EditComponent implements OnInit {
 
   currentGame: VideoGame;
+  generes: Genere[];
   searchBar: string = "";
   loadedFromDetail = false;
   isChanged = true;
   trovato = false;
   errore = false;
-  constructor(private router: ActivatedRoute, private listVideogames: ListVideogame, private utilityRouter: Router) {//ActivatedRoute rappresenta il route corrente
+  constructor(private router: ActivatedRoute, private listVideogames: ListVideogame, private utilityRouter: Router, private genereListService: ListGeneresService) {//ActivatedRoute rappresenta il route corrente
     this.router.params.subscribe(params => {
       if (params['id'] != '' && params['id'] != null) {
         this.currentGame = this.listVideogames.getGameById(params['id']);
@@ -45,10 +48,16 @@ export class EditComponent implements OnInit {
   }
 
   ngOnInit() {
+
     if (this.loadedFromDetail && this.currentGame && this.currentGame.$title != "") {
       this.searchBar = this.currentGame.$title;
       this.trovato = true;
     }
+
+    this.generes = this.genereListService.getGeneresList();
+    
+
+    
   }
 
 

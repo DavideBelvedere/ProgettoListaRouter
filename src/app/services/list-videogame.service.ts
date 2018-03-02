@@ -1,15 +1,26 @@
 
 import { Injectable } from "@angular/core";
 import { VideoGame } from "../class/Videogame";
+import { Genere } from "../class/Genere";
+import { ListGeneresService } from "./list-generes.service";
 
 @Injectable()
 export class ListVideogame {
-    private games: VideoGame[] = [new VideoGame("../assets/img/fifa18.jpg", "Fifa 18", 70, "1", "sport", 80, 2017),
-    new VideoGame("../assets/img/fifa18.jpg", "Battelfield 4", 60, "2", "guerra", 98, 2016),
-    new VideoGame("../assets/img/fifa18.jpg", "God of war 4", 50, "3", "guerra", 59, 2018),
-    new VideoGame("../assets/img/fifa18.jpg", "Crash Bandicot", 30, "4", "guerra", 100, 2010)];
+    private games: VideoGame[] = [new VideoGame("../assets/img/fifa18.jpg", "Fifa 18", 70, "1",this.listGeneres.getGenereById("2").clone(), 80, 2017),
+    new VideoGame("../assets/img/fifa18.jpg", "Battelfield 4", 60, "2", this.listGeneres.getGenereById("4").clone(), 98, 2016),
+    new VideoGame("../assets/img/fifa18.jpg", "God of war 4", 50, "3", this.listGeneres.getGenereById("4").clone(), 59, 2018),
+    new VideoGame("../assets/img/fifa18.jpg", "Crash Bandicot", 30, "4", this.listGeneres.getGenereById("1").clone(), 100, 2010),
+    new VideoGame("../assets/img/fifa18.jpg", "Gran Turismo", 130, "5", this.listGeneres.getGenereById("2").clone(), 85, 2015),
+    new VideoGame("../assets/img/fifa18.jpg", "Destiny", 80, "6", this.listGeneres.getGenereById("4").clone(), 80, 2018),
+    new VideoGame("../assets/img/fifa18.jpg", "Super Mario Bros", 25, "7", this.listGeneres.getGenereById("1").clone(), 25, 2012),
+    new VideoGame("../assets/img/fifa18.jpg", "Sudoku", 5, "8", this.listGeneres.getGenereById("3").clone(), 76, 2018),
+    new VideoGame("../assets/img/fifa18.jpg", "Parole Crociate", 1, "8", this.listGeneres.getGenereById("3").clone(), 64, 2016),
+    new VideoGame("../assets/img/fifa18.jpg", "Skyrim", 70, "9", this.listGeneres.getGenereById("1").clone(), 100, 2013),
+    new VideoGame("../assets/img/fifa18.jpg", "LOL", 15, "10", this.listGeneres.getGenereById("5").clone(), 89, 2018),
+    new VideoGame("../assets/img/fifa18.jpg", "Minecraft", 1, "11", this.listGeneres.getGenereById("5").clone(), 54, 2018)
+];
 
-    constructor() {
+    constructor(private listGeneres: ListGeneresService) {
 
     }
     getVideogameList(): VideoGame[] {

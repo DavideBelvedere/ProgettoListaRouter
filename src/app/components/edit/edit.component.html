@@ -3,8 +3,15 @@
 
 </div>
 <div *ngIf="trovato" style="margin-top: 70px">
-    {{currentGame.id}}<br> titolo: <input type="text" [(ngModel)]="currentGame.title" /><br> prezzo: <input type="text" [(ngModel)]="currentGame.price" /><br> genere: <input type="text" [(ngModel)]="currentGame.genere" /><br> rating: <input type="text"
-        [(ngModel)]="currentGame.rating" /><br> anno: <input type="text" [(ngModel)]="currentGame.anno" />
+    {{currentGame.id}}<br> titolo: <input type="text" [(ngModel)]="currentGame.title" />
+    <br> prezzo: <input type="text" [(ngModel)]="currentGame.price" />
+    <br> genere: <select [(ngModel)]="currentGame.genere.description">
+        <ng-container *ngFor="let genere of generes">
+        <option>{{genere.description}}</option>
+        </ng-container>
+        </select>
+    <br> rating: <input type="text" [(ngModel)]="currentGame.rating" />
+    <br> anno: <input type="text" [(ngModel)]="currentGame.anno" />
 
     <button (click)="edit()">Applica Modifiche</button>
 </div>
