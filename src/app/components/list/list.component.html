@@ -1,5 +1,5 @@
 <div style="height:80px"></div>
-<select (ngModelChange)="filter()">
+<select [(ngModel)]="value" (ngModelChange)="filter()">
     <option>Tutti</option>
     <ng-container *ngFor="let genere of generes">
         <option>{{genereListService.getDescriptionById(genere?.id)}}</option>

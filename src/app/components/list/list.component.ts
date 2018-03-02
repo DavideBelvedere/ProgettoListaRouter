@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListVideogame } from '../../services/list-videogame.service';
 import { VideoGame } from '../../class/Videogame';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { Genere } from '../../class/Genere';
 import { ListGeneresService } from '../../services/list-generes.service';
 
@@ -14,7 +15,7 @@ export class ListComponent implements OnInit {
   videoGames: VideoGame[];
   videoGamesFiltered: VideoGame[];
   generes: Genere[];
-  value: string = "Tutti";
+  value: string;
   constructor(private listVideogame: ListVideogame, private router: Router, private genereListService: ListGeneresService) {
 
   }
@@ -23,6 +24,7 @@ export class ListComponent implements OnInit {
     this.videoGames = this.listVideogame.getVideogameList();
     this.generes = this.genereListService.getGeneresList();
     this.videoGamesFiltered = this.videoGames;
+    this.value='Tutti';
   }
 
   goToEdit(game: VideoGame) {
@@ -30,7 +32,6 @@ export class ListComponent implements OnInit {
   }
 
   filter() {
-    alert('son dentro');
     if (this.value != 'Tutti') {
       this.videoGamesFiltered = [];
       for (let game of this.videoGames) {
