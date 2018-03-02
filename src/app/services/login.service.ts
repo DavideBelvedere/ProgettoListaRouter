@@ -1,28 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Router } from '@angular/router';
+import { ListUserService } from './list-user.service';
+import { User } from '../class/User';
 
 @Injectable()
 export class LoginService {
-  user = "user";
-  password = "password";
+
   private loginParam: Subject<boolean> = new Subject<boolean>();
   public loginParam$ = this.loginParam.asObservable();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService: ListUserService) {
 
 
 
   }
 
   login(user: string, pass: string): boolean {
-    if (user == this.user && this.password == pass) {
-      sessionStorage.setItem('user', user);
-      this.loginParam.next(true);
-      return true;
-    } else {
-      return false;
-    }
+
+    return this.userService.login(user, pass);
   }
 
   reset() {
@@ -47,4 +43,23 @@ export class LoginService {
       return true;
     }
   }
+
+  getCurrentUser():User{
+  
+    if (sessionStorage.getItem('user') === null) {
+      return null;
+    } else {
+      return JSON.parse(sessionStorage.getItem('user')) as User;
+    }
+     
+  }
+
+  isAdmin(user:User):boolean{
+    if (user.tipo == 'admin') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
+import { User } from '../../class/User';
 
 @Component({
   selector: 'app-login',
@@ -29,9 +30,5 @@ export class LoginComponent implements OnInit {
       alert('login non eseguito controlla username e password');
     }
   }
-
-
-
-
-
+  
 }

@@ -1,9 +1,10 @@
 <div class="navbar">
     <nav>
         <ul>
+            <li>{{currentUser.user}}</li>
             <li routerLink="/home" routerLinkActive="active">Home</li>
             <li routerLink="/list" routerLinkActive="active">List</li>
-            <li routerLink="/edit" routerLinkActive="active">Edit</li>
+            <li *ngIf="isAnAdmin" routerLink="/edit" routerLinkActive="active">Edit</li>
         </ul>
 
     </nav>

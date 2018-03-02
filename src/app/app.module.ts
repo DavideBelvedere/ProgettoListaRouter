@@ -17,6 +17,7 @@ import { LoginService } from './services/login.service';
 import { AuthguardService } from './services/authguard.service';
 import { CanDeactivateEditService } from './services/can-deactivate-edit.service';
 import { AuthguardLoginService } from './services/authguard-login.service';
+import { ListUserService } from './services/list-user.service';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { AuthguardLoginService } from './services/authguard-login.service';
     GamesRouterModule
 
   ],
-  providers: [ListVideogame, LoginService, AuthguardService, AuthguardLoginService,CanDeactivateEditService],
+  providers: [ListVideogame, LoginService, AuthguardService, AuthguardLoginService,CanDeactivateEditService,ListUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

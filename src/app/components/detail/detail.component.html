@@ -1,11 +1,20 @@
-<p style="margin-top: 70px">
-    id: {{currentGame?.id}}
-    <br><br> titolo: {{currentGame?.title}}
-    <br><br> prezzo: {{currentGame?.price}}
-    <br><br> src: {{currentGame?.imgUrl}}
-    <br><br> genere: {{currentGame?.genere}}
-    <br><br> rating: {{currentGame?.rating}}
-    <br><br> anno: {{currentGame?.anno}}
-</p>
-<button (click)="backList()">Indietro</button>
-<button (click)="goToEdit()">Modifica</button>
+<div class="gameDiv">
+    <div class="infoGame">
+        <div class="imgDiv">
+            <img src="{{currentGame?.imgUrl}}" />
+        </div>
+        <div class="infoDiv">
+            <p>id: {{currentGame?.id}}</p>
+            <p>titolo: {{currentGame?.title}}</p>
+            <p>prezzo: {{currentGame?.price}}</p>
+            <p>genere: {{currentGame?.genere}}</p>
+            <p>rating: {{currentGame?.rating}}</p>
+            <p>anno: {{currentGame?.anno}}</p>
+        </div>
+        <div class="buttonDiv">
+            <button (click)="backList()">Indietro</button><br>
+            <button *ngIf="isAnAdmin" (click)="goToEdit()">Modifica</button>
+        </div>
+    </div>
+
+</div>
