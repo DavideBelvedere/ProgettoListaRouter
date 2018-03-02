@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ListVideogame } from '../../services/list-videogame.service';
 import { VideoGame } from '../../class/Videogame';
 import { Router } from '@angular/router';
+import { Genere } from '../../class/Genere';
+import { ListGeneresService } from '../../services/list-generes.service';
 
 @Component({
   selector: 'app-list',
@@ -10,16 +12,21 @@ import { Router } from '@angular/router';
 })
 export class ListComponent implements OnInit {
   videoGames: VideoGame[];
-  constructor(private listVideogame: ListVideogame, private router: Router) {
+  generes: Genere[];
+  value: string="Tutti";
+  constructor(private listVideogame: ListVideogame, private router: Router, private genereListService: ListGeneresService) {
 
   }
 
   ngOnInit() {
     this.videoGames = this.listVideogame.getVideogameList();
+    this.generes = this.genereListService.getGeneresList();
   }
 
   goToEdit(game: VideoGame){
     this.router.navigate(['/detail/'+game.$id]); //setta l'id quando si va nella pagina detail
   }
+
+ 
 
 }

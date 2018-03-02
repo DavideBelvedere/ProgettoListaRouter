@@ -21,5 +21,11 @@ export class ListGeneresService {
       }
     }
   }
-
+  getDescriptionById(id: string): string {
+    for (let genere of this.generes) {
+      if (genere.$id == id) {
+        return genere.$description;
+      }
+    }
+  }
 }
