@@ -1,18 +1,17 @@
 <div style="height:80px"></div>
-<select [(ngModel)]="value">
-        <option>Tutti</option>
-        <ng-container *ngFor="let genere of generes">
-            <option>{{genereListService.getDescriptionById(genere?.id)}}</option>
-        </ng-container>
+<select (ngModelChange)="filter()">
+    <option>Tutti</option>
+    <ng-container *ngFor="let genere of generes">
+        <option>{{genereListService.getDescriptionById(genere?.id)}}</option>
+    </ng-container>
 </select>
-<ng-container *ngFor="let game of videoGames">
-    <div class="gameDiv" *ngIf="value=='Tutti' || game.genere.description == value" (click)="goToEdit(game)">
-        <div class="spacingDiv"></div>
+<div class="gameDiv" *ngFor="let game of videoGamesFiltered" (click)="goToEdit(game)">
+    <div class="spacingDiv"></div>
 
-        <div class="infoGame">
-            <div class="imgDiv"><img src="{{game?.imgUrl}}"></div>
-            <div class="text">{{game?.title}} - {{game?.price}}€</div>
-        </div>
-        <div class="spacingDiv"></div>
+    <div class="infoGame">
+        <div class="imgDiv"><img src="{{game?.imgUrl}}"></div>
+        <div class="text">{{game?.title}} - {{game?.price}}€</div>
     </div>
-</ng-container>
+    <div class="spacingDiv"></div>
+
+</div>

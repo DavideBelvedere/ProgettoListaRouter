@@ -12,8 +12,9 @@ import { ListGeneresService } from '../../services/list-generes.service';
 })
 export class ListComponent implements OnInit {
   videoGames: VideoGame[];
+  videoGamesFiltered: VideoGame[];
   generes: Genere[];
-  value: string="Tutti";
+  value: string = "Tutti";
   constructor(private listVideogame: ListVideogame, private router: Router, private genereListService: ListGeneresService) {
 
   }
@@ -21,12 +22,27 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.videoGames = this.listVideogame.getVideogameList();
     this.generes = this.genereListService.getGeneresList();
+    this.videoGamesFiltered = this.videoGames;
   }
 
-  goToEdit(game: VideoGame){
-    this.router.navigate(['/detail/'+game.$id]); //setta l'id quando si va nella pagina detail
+  goToEdit(game: VideoGame) {
+    this.router.navigate(['/detail/' + game.$id]); //setta l'id quando si va nella pagina detail
   }
 
- 
+  filter() {
+    alert('son dentro');
+    if (this.value != 'Tutti') {
+      this.videoGamesFiltered = [];
+      for (let game of this.videoGames) {
+        if (this.genereListService.getGenereById(game.$genere.$id).$description == this.value) {
+          this.videoGamesFiltered.push(game);
+        }
+      }
+    } else {
+      this.videoGamesFiltered = this.videoGames;
+    }
+
+  }
+
 
 }
