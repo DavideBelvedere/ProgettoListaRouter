@@ -68,14 +68,14 @@ export class EditComponent implements OnInit {
       data: [this.data, Validators.required],
       rating: this.currentGame.$rating
     });
-    this.editForm.patchValue({
+    /*this.editForm.patchValue({
       title: this.currentGame.$title,
       price: this.currentGame.$price,
       genere: this.currentGame.$genere,
-      data: this.currentGame.$data,
+      data: this.data,
       rating: this.currentGame.$rating
     });
-    
+*/
   }
 
   resetForm() {
@@ -130,8 +130,13 @@ export class EditComponent implements OnInit {
   }
 
   edit() {
-    
-    
+
+    let workDate: Date = new Date(this.reverseFormatDate(new Date(this.data)));
+    this.currentGame.$data = workDate;
+    this.listVideogames.editData(this.currentGame);
+    this.currentGame= this.editForm.value;
+    alert("modifiche applicate correttamente");
+    this.goToDetail();
 
   }
 
