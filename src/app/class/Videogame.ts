@@ -28,6 +28,16 @@ export class VideoGame {
 		return new VideoGame(this.imgUrl, this.title, this.price, this.id, this.genere, this.rating, this.data);
 	}
 
+	changeValues(item: VideoGame){
+		this.imgUrl = item.imgUrl;
+		this.title = item.title;
+		this.price = item.price;
+		this.id = item.id;
+		this.genere = item.genere;
+		this.rating = item.rating;
+		this.data = item.data;
+	}
+
 	public get $id(): string {
 		return this.id;
 	}

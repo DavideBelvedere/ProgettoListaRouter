@@ -103,7 +103,7 @@ export class EditComponent implements OnInit {
 	
 		return [month, day, year].join('/');
 	}
-
+ 
   NavigationStart() {
 
   }
