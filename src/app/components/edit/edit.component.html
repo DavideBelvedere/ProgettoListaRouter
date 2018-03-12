@@ -27,7 +27,7 @@
         <input type="number" formControlName="rating">
 
 
-        <button type="submit">Modifica</button>
+        <button type="submit" [disabled]="editForm.status== 'INVALID'">Modifica</button>
         <button type="button" (click)="resetForm()">Azzera</button>
     </form>
 
