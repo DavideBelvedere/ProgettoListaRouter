@@ -7,21 +7,25 @@ export class VideoGame {
 	private id: string;
 	private genere: Genere;
 	private rating: number;
-	private anno: number;
+	private data: Date;
+	 
+	
 
 
 
-	constructor($imgUrl: string = "", $title: string = "", $price: number = 0, $id: string = "", $genere: Genere = null, $rating: number = 0, $anno: number = 0) {
+	constructor($imgUrl: string = "", $title: string = "", $price: number = 0, $id: string = "", $genere: Genere = null, $rating: number = 0, $data) {
 		this.imgUrl = $imgUrl;
 		this.title = $title;
 		this.price = $price;
 		this.id = $id;
 		this.genere = $genere;
 		this.rating = $rating;
-		this.anno = $anno;
+		this.data = $data;
 	}
+
+	 
 	clone(): VideoGame {
-		return new VideoGame(this.imgUrl, this.title, this.price, this.id, this.genere, this.rating, this.anno);
+		return new VideoGame(this.imgUrl, this.title, this.price, this.id, this.genere, this.rating, this.data);
 	}
 
 	public get $id(): string {
@@ -49,12 +53,12 @@ export class VideoGame {
 		this.price = value;
 	}
 
-	public get $anno(): number {
-		return this.anno;
+	public get $data(): Date {
+		return this.data;
 	}
 
-	public set $anno(value: number) {
-		this.anno = value;
+	public set $data(value: Date) {
+		this.data = value;
 	}
 
 	public get $rating(): number {
@@ -72,7 +76,20 @@ export class VideoGame {
 	public set $genere(value: Genere) {
 		this.genere = value;
 	}
+	
+	formatDate(date:Date) {
+		
+		let	month = '' + (date.getMonth() + 1);
+		let	day = '' + date.getDate();
+		let	year = date.getFullYear();
+	
+		if (month.length < 2) month = '0' + month;
+		if (day.length < 2) day = '0' + day;
+	
+		return [year, month, day].join('-');
+	}
 
+	
 
 
 }

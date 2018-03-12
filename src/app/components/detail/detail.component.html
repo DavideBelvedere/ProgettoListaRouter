@@ -6,10 +6,10 @@
         <div class="infoDiv">
             <p>id: {{currentGame?.id}}</p>
             <p>titolo: {{currentGame?.title}}</p>
-            <p>prezzo: {{currentGame?.price}}</p>
+            <p>prezzo: {{currentGame?.price | currency: 'EUR'}}</p>
             <p>genere: {{currentGame?.genere?.description}}</p>
             <p>rating: {{currentGame?.rating}}</p>
-            <p>anno: {{currentGame?.anno}}</p>
+            <p>data: {{currentGame?.data | date: 'dd/MM/yyyy'}}</p>
         </div>
         <div class="buttonDiv">
             <button (click)="backList()">Indietro</button><br>
