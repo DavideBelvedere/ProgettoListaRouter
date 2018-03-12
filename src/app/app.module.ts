@@ -11,7 +11,7 @@ import { ListComponent } from './components/list/list.component';
 import { GamesRouterModule } from './routers/router.module';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ListVideogame } from './services/list-videogame.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { LoginService } from './services/login.service';
 import { AuthguardService } from './services/authguard.service';
@@ -30,12 +30,14 @@ import { ListGeneresService } from './services/list-generes.service';
     HomeComponent,
     ListComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    GamesRouterModule
+    GamesRouterModule,
+    ReactiveFormsModule
 
   ],
   providers: [ListVideogame, LoginService, AuthguardService, AuthguardLoginService,CanDeactivateEditService,ListUserService,ListGeneresService],

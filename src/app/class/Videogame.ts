@@ -13,7 +13,7 @@ export class VideoGame {
 
 
 
-	constructor($imgUrl: string = "", $title: string = "", $price: number = 0, $id: string = "", $genere: Genere = null, $rating: number = 0, $data) {
+	constructor($imgUrl: string = "", $title: string = "", $price: number = 0, $id: string = "", $genere: Genere = null, $rating: number = 0, $data=null) {
 		this.imgUrl = $imgUrl;
 		this.title = $title;
 		this.price = $price;

@@ -3,45 +3,34 @@
 
 </div>
 <div *ngIf="trovato" style="margin-top: 70px">
-    {{currentGame.id}}
-    <form (ngSubmit)="edit()" #gameForm="ngForm">
+
+    <form (ngSubmit)="edit()" [formGroup]="editForm">
 
         <label>Titolo</label>
-        <input type="text" required [(ngModel)]="currentGame.title" name="name" #titleVar="ngModel">
-        <div [hidden]="titleVar.valid || titleVar.pristine">Il titolo è richiesto</div>
+        <input type="text" formControlName="title">
 
         <label>Prezzo</label>
-        <input type="number" required [(ngModel)]="currentGame.price" name="price" #nameVar="ngModel">
-        <div [hidden]="nameVar.valid || nameVar.pristine">Il prezzo è richiesto</div>
+        <input type="number" formControlName="price">
+
 
         <label>Genere</label>
-        <select required [(ngModel)]="currentGame.genere.description" name="genere" #genereVar="ngModel">
+        <select formControlName="genere">
              <option *ngFor="let genere of generes">{{genere.description}}</option>
         </select>
-        <div [hidden]="genereVar.valid || genere.pristine">Genere è richiesto</div>
+
 
         <label>Data</label>
-        <input type="date" required [(ngModel)]="data" name="data" #dataVar="ngModel">
-        <div [hidden]="dataVar.valid || dataVar.pristine">La data è richiesta</div>
+        <input type="date" formControlName="data">
+
 
         <label>Rating</label>
-        <input type="number" [(ngModel)]="currentGame.rating" name="rating" #retingVar="ngModel">
+        <input type="number" formControlName="rating">
 
 
-        <button type="submit" [disabled]="!gameForm.form.valid">Modifica</button>
-        <button type="button" (click)="gameForm.reset()">Azzera</button>
+        <button type="submit">Modifica</button>
+        <button type="button" (click)="resetForm()">Azzera</button>
     </form>
 
-
-    <!--  titolo: <input type="text" [(ngModel)]="currentGame.title" />
-    <br> prezzo: <input type="text" [(ngModel)]="currentGame.price" />
-    <br> genere: <select [(ngModel)]="currentGame.genere.description">
-        <ng-container *ngFor="let genere of generes">
-        <option>{{genere.description}}</option>
-        </ng-container>
-        </select>
-    <br> rating: <input type="text" [(ngModel)]="currentGame.rating" />
-    <br> anno: <input type="date" [(ngModel)]="data" />-->
 
 
 </div>
