@@ -132,13 +132,6 @@ export class EditComponent implements OnInit {
   edit() {
     
     
-    let workDate: Date = new Date(this.reverseFormatDate(new Date(this.editForm.data)));
-    let workGame: VideoGame = new VideoGame(this.currentGame.$id, this.editForm.title, this.editForm.price, this.editForm.genere, this.editForm.rating);
-    this.currentGame.$data = workDate;
-    this.listVideogames.editData(this.currentGame);
-
-    alert("modifiche applicate correttamente");
-    this.goToDetail();
 
   }
 
