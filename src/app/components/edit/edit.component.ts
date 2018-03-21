@@ -61,21 +61,18 @@ export class EditComponent implements OnInit {
   }
 
   createForm() {
+   
     this.editForm = this.fb.group({
       title: [this.currentGame.$title, Validators.required],
       price: [this.currentGame.$price, Validators.required],
-      genere: [this.currentGame.$genere.$description, Validators.required],
+      genere: ['', Validators.required],
       data: [this.data, Validators.required],
       rating: this.currentGame.$rating
     });
-    /*this.editForm.patchValue({
-      title: this.currentGame.$title,
-      price: this.currentGame.$price,
-      genere: this.currentGame.$genere,
-      data: this.data,
-      rating: this.currentGame.$rating
-    });
-*/
+ 
+    this.editForm.patchValue({
+      genere:[this.currentGame.$genere.$description,Validators.required]
+    })
   }
 
   resetForm() {
@@ -130,7 +127,7 @@ export class EditComponent implements OnInit {
   }
 
   edit() {
-this.data=this.editForm.value.data;
+    this.data=this.editForm.value.data;
     let workDate: Date = new Date(this.reverseFormatDate(new Date(this.data)));
     this.currentGame.$data = workDate;
     this.currentGame.$title=this.editForm.value.title;
@@ -140,7 +137,6 @@ this.data=this.editForm.value.data;
     this.listVideogames.editData(this.currentGame);
     alert("modifiche applicate correttamente");
     this.goToDetail();
-
   }
 
   reverseFormatDate(date: Date) {
